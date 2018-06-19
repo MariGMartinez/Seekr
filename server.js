@@ -1,18 +1,20 @@
-const express = require("express")
-const path = require("path")
+const express = require("express");
+const path = require("path");
 var bodyparser = require('body-parser')
 const PORT = process.env.PORT || 3001;
-const app = express()
-var mongoose = require ('mongoose')
+const app = express();
+var mongoose = require('mongoose')
 
 
 
 mongoose.connect('mongodb://localhost/dataDB');
 
-
+// Middleware
 app.use(bodyparser.urlencoded({extended: true}))
 app.use(bodyparser.json())
-app.use(require('routes/apiroutes'))
+app.use(require('routes/apiRoutes'))
+
+
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
