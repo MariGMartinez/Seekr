@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from "react"
-import Navbar from "../components/navbar"
-import FeedCard from "../components/feedCard"
+import Navbars from "../../components/navbar"
+import FeedCard from "../../components/feedCard"
 
 class Feed extends Component {
     render(){
         return(
            <Fragment>
-               <Navbar />
+               <Navbars />
                <FeedCard />
                
            </Fragment> 

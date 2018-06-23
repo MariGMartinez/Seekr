@@ -1,30 +1,24 @@
 import React, { Component, Fragment } from 'react'
+import { Navbar, NavItem } from 'react-materialize'
 
 import './navbar.css'
 
 
 
-class Navbar extends Component {
-  render(){
-    return(
+class Navbars extends Component {
+  render() {
+    return (
       <Fragment>
-      <nav>
-          <div className="nav-wrapper">
-            <a href="#" className="brand-logo right">Seekr</a>
-            <ul id="nav-mobile" className="left hide-on-med-and-down">
-              <li><a href="sass.html">Home</a></li>
-              <li><a href="badges.html">Components</a></li>
-              <li><a href="collapsible.html">JavaScript</a></li>
-            </ul>
-          </div>
-        </nav>
-
-        
-
+        <Navbar brand='Seekr' left>
+          <NavItem onClick={() => console.log('test click')}>Getting started</NavItem>
+          <NavItem href='components.html'>Components</NavItem>
+        </Navbar>
       </Fragment>
     )
   }
 }
 
 
-export default Navbar
+export default Navbars
+
+
