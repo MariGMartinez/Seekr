@@ -1,33 +1,19 @@
 import React, { Component, Fragment } from "react"
+import { Row, Input, Card, CardTitle } from "react-materialize"
 import "./editProfileForm.css"
 
 class editProfileForm extends Component {
     render() {
         return (
-        <Fragment>
-            <div className="row">
-                <div className="col s3"></div>
-                    <div className="col s12 m6">
-                        <div className="card blue-grey darken-1">
-                            <div className="card-content white-text">
-                                <form>
-                                    <label>
-                                        First Name:
-                                        <input type="text" name="first name" />
-                                    </label>
-                                    <label>
-                                        Last Name:
-                                        <input type="text" name="last name" />
-                                    </label>
-
-                                    <input type="submit" value="Submit" />
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                <div className="col s3"></div>
-            </div>
-        </Fragment>
+            <Fragment>
+                <div>
+                    <Row>
+                        <Input placeholder="John" s={6} label="First Name" />
+                        <Input placeholder="Smith" s={6} label="Last Name" />
+                        <Input type='textarea' s={12} label="Bio" />
+                    </Row>
+                </div>
+            </Fragment>
 
         )
     }
