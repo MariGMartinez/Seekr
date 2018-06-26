@@ -3,6 +3,7 @@ import { Row, Input, Button } from 'react-materialize'
 import './registerForm.css'
 
 class Register extends Component {
+    
     render() {
         return (
         <Fragment>

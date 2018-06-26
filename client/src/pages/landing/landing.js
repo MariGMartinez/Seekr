@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react"
 import { Button } from "react-materialize"
-import "../landing/landing.css"
+import "./landing.css"
 
 class Landing extends Component {
     render(){
