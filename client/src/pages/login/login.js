@@ -11,12 +11,14 @@ class Login extends Component {
     
         
     state = { 
-        isLoggedIn: false,
+        isLoggedIn: sessionStorage.getItem('isLoggedIn'),
         username: "",
         password: ""
     };
     handleLogoutClick = event =>{
         this.setState({ isLoggedIn: false });
+        sessionStorage.setItem('isLoggedIn', false)
+
     }
     
     handleInputChange = event => {
@@ -33,8 +35,9 @@ class Login extends Component {
                 password: this.state.password
             }
             USER.login(user)
-                .then((res) => {this.setState({ isLoggedIn: true })
-                    
+                .then((res) => {
+                    this.setState({ isLoggedIn: true })
+                    sessionStorage.setItem('isLoggedIn', true)
                     })
                 .catch(err => console.log(err));
         }
