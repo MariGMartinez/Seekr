@@ -14,6 +14,7 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
+          
           <Route exact path="/" component= {Landing}/>
           <Route exact path="/feed" component= {Feed}/>
           <Route exact path="/register" component= {Register}/>

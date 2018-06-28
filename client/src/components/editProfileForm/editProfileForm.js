@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react"
+import { Row, Input, Card, CardTitle } from "react-materialize"
 import "./editProfileForm.css"
 
 class editProfileForm extends Component {

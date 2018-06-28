@@ -1,16 +1,29 @@
 import React, { Component, Fragment } from "react"
+import Navbar from "../components/navbar"
 import ProfileCard from "../components/profileCard"
-import GameBadgeCard from "../components/gameBadge"
+import UserStats from "../components/userStats"
+import FavHikes from "../components/favHikes"
+import trails from ".././trails.json";
 
 class Profile extends Component {
+
+    state = {
+        trails
+      };
+    
     render(){
         return(
            <Fragment>
-               profile page
+               <Navbar />
                <ProfileCard />
-               <GameBadgeCard />
-               <GameBadgeCard />
-               <GameBadgeCard />
+               <UserStats />
+               {this.state.trails.map(trail => (
+          <FavHikes
+            name={trail.name}
+          />
+        ))}
+              
+               
            </Fragment> 
         )
     }
