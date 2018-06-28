@@ -11,7 +11,7 @@ class profileCard extends Component {
                 <div className="col s3"></div>
                     <div className="col s12 m6">
                         <div className="card blue-grey darken-1">
-                            <img src={logo}  className="circle profilePic center" alt="Logo" />;
+                            <img src={logo}  className="circle profilePic" alt="Logo" />;
                             <div className="card-content white-text center-align">
                                 {/* data for username goes here */}
                                 <span className="card-title">Username</span>
@@ -29,3 +29,4 @@ class profileCard extends Component {
 }
 
 export default profileCard
+

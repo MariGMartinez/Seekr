@@ -11,7 +11,7 @@ class Navbars extends Component {
       <Fragment>
         <Navbar brand='Seekr' left>
           <NavItem onClick={() => console.log('test click')}>Getting started</NavItem>
-          <NavItem href='components.html'>Components</NavItem>
+          <NavItem href='profile'>Profile</NavItem>
         </Navbar>
       </Fragment>
     )

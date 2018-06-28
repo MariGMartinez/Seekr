@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 var bodyparser = require('body-parser')
 const PORT = process.env.PORT || 3001;
+const routes = require("./routes");
+
 const app = express();
 var mongoose = require('mongoose')
 
@@ -10,9 +12,9 @@ var mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/dataDB');
 
 // Middleware
-app.use(bodyparser.urlencoded({extended: true}))
+app.use(bodyparser.urlencoded({ extended: true }))
 app.use(bodyparser.json())
-app.use(require('routes/apiRoutes'))
+app.use(routes)
 
 
 
@@ -23,10 +25,10 @@ if (process.env.NODE_ENV === "production") {
 
 // Send every request to the React app
 // Define any API routes before this runs
-app.get("*", function(req, res) {
+app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
