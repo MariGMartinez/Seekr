@@ -9,9 +9,10 @@ class Navbars extends Component {
   render() {
     return (
       <Fragment>
-        <Navbar brand='Seekr' left>
-          <NavItem onClick={() => console.log('test click')}>Getting started</NavItem>
-          <NavItem href='profile'>Profile</NavItem>
+        <Navbar href = "/feed" brand='Seekr' left >
+          <NavItem href="/feed">Home</NavItem>
+          <NavItem href="/search">Trail Search</NavItem>
+          <NavItem href='/profile'>Profile</NavItem>
         </Navbar>
       </Fragment>
     )

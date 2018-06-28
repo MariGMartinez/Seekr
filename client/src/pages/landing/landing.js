@@ -10,7 +10,7 @@ class Landing extends Component {
                     <div id="centerInfo">
                         <h1 id="title">Seekr</h1>
                         <Button waves='light' node='a' href='/register'> Begin Your Journey </Button>
-                        <p>Already have an account? <a href="/login">Log In</a></p>
+                        <p id="accountText">Already have an account? <a href="/login">Log In</a></p>
                     </div>
                 </div>
             </Fragment>
