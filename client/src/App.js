@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
-          <Navbar />
+          
           <Route exact path="/" component= {Landing}/>
           <Route exact path="/feed" component= {Feed}/>
           <Route exact path="/register" component= {Register}/>
