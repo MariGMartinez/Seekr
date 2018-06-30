@@ -38,6 +38,7 @@ class Login extends Component {
                 .then((res) => {
                     this.setState({ isLoggedIn: true })
                     sessionStorage.setItem('isLoggedIn', true)
+                    sessionStorage.setItem('userId', res.data._id)
                     })
                 .catch(err => console.log(err));
         }
