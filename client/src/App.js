@@ -8,7 +8,7 @@ import Feed from "./pages/feed/feed";
 import Register from "./pages/register/register"
 import Login from './pages/login/login'
 import TrailSearch from './pages/search/search'
-
+import Achievements from './pages/achievements/achievements'
 class App extends Component {
   render() {
     return (
@@ -22,7 +22,7 @@ class App extends Component {
           <Route exact path="/profile" component= {Profile}/>
           <Route exact path="/editProfile" component= {EditProfile}/>
           <Route exact path="/search" component = {TrailSearch}/>
-
+          <Route exact path="/achievements" component = {Achievements}/>
         </Fragment>
 
       </Router>
