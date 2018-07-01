@@ -4,20 +4,21 @@ import { Link } from "react-router-dom";
 import { Row, Col, Input, Button } from 'react-materialize'
 import LoginButton from "../../components/LoginButton"
 import LogoutButton from "../../components/LogoutButton"
-
-import "../../components/registerForm/registerForm.css"
+import MapContainer from "../../components/MapContainer";
 
 class Login extends Component {
     
         
     state = { 
-        isLoggedIn: sessionStorage.getItem('isLoggedIn'),
+        isLoggedIn: sessionStorage.isLoggedIn,
         username: "",
         password: ""
     };
-    handleLogoutClick = event =>{
+    handleLogoutClick = () =>{
         this.setState({ isLoggedIn: false });
-        sessionStorage.setItem('isLoggedIn', false)
+        sessionStorage.isLoggedIn= ""
+        sessionStorage.userId = ''
+
 
     }
     
@@ -37,11 +38,13 @@ class Login extends Component {
             USER.login(user)
                 .then((res) => {
                     this.setState({ isLoggedIn: true })
-                    sessionStorage.setItem('isLoggedIn', true)
+                    sessionStorage.isLoggedIn= true
+                    sessionStorage.userId = res.data._id
                     })
                 .catch(err => console.log(err));
         }
     };
+    
     render() {
         const isLoggedIn = this.state.isLoggedIn;
         let button;
@@ -80,11 +83,15 @@ class Login extends Component {
                         name="password"
                         placeholder="Password"
                     />
-                <br></br>
-                <div id="submitBtn">
-                    {button} {link}
-                </div>
-                </Col>
+                    <br></br>
+                    <div id="submitBtn">
+                        {button} {link}
+                    </div>
+                    </Col>
+                    <Col s={8}>
+                        <MapContainer />
+
+                    </Col>
             </Row>
             </Fragment>
         )
