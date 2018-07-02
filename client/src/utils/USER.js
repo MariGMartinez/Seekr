@@ -1,6 +1,10 @@
 import axios from "axios";
+import GoogleApiComponent from "google-maps-react/dist/GoogleApiComponent";
 
 export const USER = {
+    codeAddress: function(address){
+        //const geocoder = new google.maps.Geocoder()
+    },
     getUsers: function () {
         return axios.get("/api/users");
     },
