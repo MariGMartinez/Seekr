@@ -1,18 +1,36 @@
 import React, { Component, Fragment } from "react"
 import { Button } from "react-materialize"
+import Logo from "../../images/seekr-logo.png"
+import LandingGif from "../../images/landingGif.gif"
 import "./landing.css"
 
+
 class Landing extends Component {
-    render(){
-        return(
+    render() {
+        const landingCSS = {
+            background: {
+                backgroundImage: `url(${LandingGif})`,
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover"
+            },
+            button: {
+                backgroundColor: "#4477AA"
+            }
+        }
+
+        return (
             <Fragment>
-                <div id="landingBackground">
-                    <div id="centerInfo">
-                        <h1 id="title">Seekr</h1>
-                        <Button waves='light' node='a' href='/register'> Begin Your Journey </Button>
+                    <div id="centerInfo" style={landingCSS.background}>
+                        <img id="logo" src={Logo} alt="Seekr" />
+                        <br />
+                        <br />
+                        <br />
+                        <div id="landingBtn">
+                            <Button style={landingCSS.button} waves='light' node='a' href='/register'> Begin Your Journey </Button>
+                        </div>
                         <p id="accountText">Already have an account? <a href="/login">Log In</a></p>
                     </div>
-                </div>
             </Fragment>
         )
     }
