@@ -31,10 +31,10 @@ class profileCard extends Component {
                 <div className="col s3"></div>
                     <div className="col s12 m6">
                         <div className="card blue-grey darken-1 center-align">
-                            <Image cloudName='phamjosi' publicId='qy6i2adz5kqyt2lnljp5' width='200' crop='scale' />
+                            <Image cloudName='phamjosi' publicId={this.state.userAc.profilePic} width='200' crop='scale' />
                             <div className="card-content white-text center-align">
                                 {/* data for username goes here */}
-                                <span className="card-title">{this.state.userAc.username}{this.state.userAc.profilPic}</span>
+                                <span className="card-title">{this.state.userAc.username}</span>
                                 {/* data for location goes here */}
                                 <p> new </p>
                             </div>

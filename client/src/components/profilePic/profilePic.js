@@ -1,12 +1,18 @@
 import React, { Component, Fragment } from "react";
+import { Row, Input, Button } from 'react-materialize'
 import axios from 'axios';
 import Dropzone from 'react-dropzone';
+import { USER } from "../../utils";
+import { Link } from "react-router-dom";
 import "./profilePic.css";
 
 class profilePic extends Component {
     state = {
         profilePic:'',
         file: null,
+        isLoggedIn: sessionStorage.isLoggedIn,
+        userId: sessionStorage.userId,
+        userAc:[]
     };
 
     onDrop= async files =>{
@@ -28,7 +34,15 @@ class profilePic extends Component {
         const response = await axios.post(
             'https://api.cloudinary.com/v1_1/phamjosi/image/upload', formData,
         );
-        
+        {
+            USER.updateUser( this.state.userId,{
+                profilePic:response.data.public_id
+
+            })
+                .then(res => console.log(res))
+                .catch(err => console.log(err));
+        }
+        this.forceUpdate()
         console.log(response.data.public_id)
     }
     
@@ -61,7 +75,9 @@ class profilePic extends Component {
                         <Dropzone onDrop={this.onDrop}>
                             <p>Drop file here</p>
                         </Dropzone>
-                        <button onClick={this.submit}>Submit</button>
+                        <Button  onClick={this.submit}>
+                        <Link to={"/profile"} >Save Changes</Link>
+                        </Button>
                     </div>
 
                 {/* <div className="App">

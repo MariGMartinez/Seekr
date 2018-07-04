@@ -34,7 +34,7 @@ class editProfileForm extends Component {
     };
     handleFormSubmit = event => {
         event.preventDefault();
-        
+         {
             USER.updateUser( this.state.userId,{
                 firstname: this.state.firstname,
                 lastname: this.state.lastname,
@@ -46,7 +46,7 @@ class editProfileForm extends Component {
             })
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
-        
+        }
         console.log(sessionStorage)
 
     };
@@ -117,7 +117,7 @@ class editProfileForm extends Component {
                         // disabled={!(this.state.username && this.state.password)}
                         onClick={this.handleFormSubmit}
                     >
-                        {/* <Link to={"/"} >Save Changes</Link> */}
+                        <Link to={"/"} >Save Changes</Link>
                     </Button>
                 </div>
             </Fragment>
