@@ -27,7 +27,7 @@ class Landing extends Component {
                         <br />
                         <br />
                         <div id="landingBtn">
-                            <Button style={landingCSS.button} waves='light' node='a' href='/register'> Begin Your Journey </Button>
+                            <Button style={landingCSS.button} waves='light' node='a' href='/newuser'> Begin Your Journey </Button>
                         </div>
                         <p id="accountText">Already have an account? <a href="/login">Log In</a></p>
                     </div>
