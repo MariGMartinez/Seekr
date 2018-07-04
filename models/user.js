@@ -10,6 +10,9 @@ const UserSchema = new Schema({
     lastname: String,
     email: String,
     profilePic: String,
+    bio: String,
+    age: String,
+    location: String,
     savedTrails: {type: mongoose.Schema.Types.ObjectId, ref: 'Trail'},
     roles: []
 });

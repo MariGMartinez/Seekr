@@ -4,6 +4,7 @@ import Navbar from "../components/navbar"
 import ProfileCard from "../components/profileCard"
 import UserStats from "../components/userStats"
 import FavHikes from "../components/favHikes"
+
 import trails from ".././trails.json";
 
 class Profile extends Component {
@@ -21,6 +22,7 @@ class Profile extends Component {
                <Navbar />
                <ProfileCard />
                <UserStats />
+
                {this.state.trails.map(trail => (
           <FavHikes
             name={trail.name}

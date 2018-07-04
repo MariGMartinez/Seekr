@@ -88,10 +88,6 @@ class Login extends Component {
                         {button} {link}
                     </div>
                     </Col>
-                    <Col s={8}>
-                        <MapContainer />
-
-                    </Col>
             </Row>
             </Fragment>
         )
