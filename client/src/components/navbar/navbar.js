@@ -7,9 +7,14 @@ import './navbar.css'
 
 class Navbars extends Component {
   render() {
+    const navbarCSS = {
+      background: {
+        backgroundColor: "#546E7A"
+      }
+    }
     return (
       <Fragment>
-        <Navbar href = "/feed" brand='Seekr' left >
+        <Navbar style = {navbarCSS.background} href = "/feed" brand='Seekr' left >
           <NavItem href="/feed">Home</NavItem>
           <NavItem href="/search">Trail Search</NavItem>
           <NavItem href='/profile'>Profile</NavItem>

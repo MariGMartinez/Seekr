@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react"
+import { Helmet } from "react-helmet"
 import Navbar from "../components/navbar"
 import ProfileCard from "../components/profileCard"
 import UserStats from "../components/userStats"
@@ -14,6 +15,9 @@ class Profile extends Component {
     render(){
         return(
            <Fragment>
+               <Helmet>
+                <style>{'body { background-color: #77AA99; }'}</style>
+               </Helmet>
                <Navbar />
                <ProfileCard />
                <UserStats />

@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import { Helmet } from "react-helmet"
 import { Input, Button, Card, Col } from 'react-materialize'
 import Navbar from "../../components/navbar"
 
@@ -10,6 +11,13 @@ class TrailSearch extends Component {
 
     render() {
 
+        const searchCSS = {
+            searchBar: {
+                backgroundColor: "white",
+                borderRadius: "10px"
+            }
+        }
+
         window.onload = function(){
             document.getElementById("searchMapDiv").style.display = "none"
             document.getElementById("searchResultsDiv").style.display = "none"
@@ -20,9 +28,12 @@ class TrailSearch extends Component {
         }
         return (
             <Fragment>
+                <Helmet>
+                    <style>{'body { background-color: #77AA99; }'}</style>
+                </Helmet>
                 <Navbar />
-                <div className="trailSearchBar">
-                    <Input s={6} label="Where would you like to go?" />
+                <div className="trailSearchBar" >
+                    <Input s={6} style = {searchCSS.searchBar} placeholder="  Where would you like to go?" />
                 </div>
                 <div id="submitBtn">
                     <Button id="trailSearchBtn" waves='light' onClick={showResults}>Submit</Button>

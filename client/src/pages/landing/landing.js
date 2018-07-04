@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react"
 import { Button } from "react-materialize"
 import Logo from "../../images/seekr-logo.png"
-import LandingGif from "../../images/landingGif.gif"
+import LandingGif from "../../images/landingPage/landingGif.gif"
 import "./landing.css"
 
 

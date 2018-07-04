@@ -61,13 +61,11 @@ class NewUser extends Component {
                         value={this.state.username}
                         onChange={this.handleInputChange}
                         name="username"
-                        placeholder="User name"
                     />
                     <Input type="password" label="password" s={12} 
                         value={this.state.password}
                         onChange={this.handleInputChange}
                         name="password"
-                        placeholder="Password"
                         />
                     <Input 
                         type="email" 
@@ -76,7 +74,6 @@ class NewUser extends Component {
                         value={this.state.email}
                         onChange={this.handleInputChange}
                         name="email"
-                        placeholder="Email"
                     />
                 </Row>
                 <br></br>
