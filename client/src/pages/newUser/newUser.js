@@ -86,7 +86,7 @@ class NewUser extends Component {
                         disabled={!(this.state.username && this.state.password)}
                         onClick={this.handleFormSubmit}
                     >
-                        <Link to={"/"} >Sign up</Link>
+                        Sign up
                     </Button>
                 </div>
             </Fragment>

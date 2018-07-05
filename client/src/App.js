@@ -5,7 +5,7 @@ import Profile from "./pages/profile"
 import EditProfile from "./pages/editProfile"
 import Landing from "./pages/landing/landing"
 import Feed from "./pages/feed/feed";
-import Register from "./pages/register/register"
+import Register from "./pages/newUser/newUser"
 import Login from './pages/login/login'
 import TrailSearch from './pages/search/search'
 import Achievements from './pages/achievements/achievements'
