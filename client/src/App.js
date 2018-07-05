@@ -17,12 +17,13 @@ class App extends Component {
           
           <Route exact path="/" component= {Landing}/>
           <Route exact path="/feed" component= {Feed}/>
-          <Route exact path="/register" component= {Register}/>
+          <Route exact path="/newUser" component= {Register}/>
           <Route exact path="/login" component= {Login}/>
           <Route exact path="/profile" component= {Profile}/>
           <Route exact path="/editProfile" component= {EditProfile}/>
           <Route exact path="/search" component = {TrailSearch}/>
           <Route exact path="/achievements" component = {Achievements}/>
+          
         </Fragment>
 
       </Router>

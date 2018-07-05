@@ -112,7 +112,6 @@ export class MapContainer extends Component {
                     placeholder="Address Number" 
                     s={5}
                     type="text"
-                    label="Search Trails by Enter Your Address"
                     value={this.state.addressNum}
                     name = "addressNum"
                     onChange={this.handleInputChange}

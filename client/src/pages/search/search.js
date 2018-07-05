@@ -24,11 +24,11 @@ class TrailSearch extends Component {
                     <style>{'body { background-color: #77AA99; }'}</style>
                 </Helmet>
                 <Navbar />
-                <Row>
-
+               <Row>
+                   
                     <MapContainer />
-
-                </Row>
+                
+                </Row> 
             </Fragment>
         )
     }
