@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
-          
+    
           <Route exact path="/" component= {Landing}/>
           <Route exact path="/feed" component= {Feed}/>
           <Route exact path="/newUser" component= {NewUser}/>
@@ -23,7 +23,6 @@ class App extends Component {
           <Route exact path="/editProfile" component= {EditProfile}/>
           <Route exact path="/search" component = {TrailSearch}/>
           <Route exact path="/achievements" component = {Achievements}/>
-          
         </Fragment>
 
       </Router>
