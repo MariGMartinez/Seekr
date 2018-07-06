@@ -1,15 +1,15 @@
 import React, { Component, Fragment } from 'react'
 import "../trailMap/trailMap.css"
 class currentTrail extends Component {
-    $(document).ready(function() {
+   /*  $(document).ready(()=> {
 
         $("#end").hide()
 
 
         initLocationProcedure();
-    })
+    }) */
         
-        function initLocationProcedure() {
+    /* initLocationProcedure() {
     map = new google.maps.Map(document.getElementById('map-canvas'), {
         zoom: 17
     });
@@ -24,18 +24,18 @@ class currentTrail extends Component {
     } else {
         alert("Your phone does not support the Geolocation API");
     }
-}
+    }
 
-function locError(error) {
+locError(error) {
     alert("The current position could not be found!");
 }
 
-function displayAndWatch(position) {
+displayAndWatch(position) {
     setUserLocation(position);
     watchCurrentPosition();
 }
 
-function setUserLocation(pos) {
+setUserLocation(pos) {
     userLocation = new google.maps.Marker({
         map: map,
         position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
@@ -45,14 +45,14 @@ function setUserLocation(pos) {
     map.panTo(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
 }
 
-function watchCurrentPosition() {
+watchCurrentPosition() {
     var positionTimer = navigator.geolocation.watchPosition(function (position) {
         setMarkerPosition(userLocation, position);
         map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
     });
 }
 
-function setMarkerPosition(marker, position) {
+setMarkerPosition(marker, position) {
     marker.setPosition(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
 
     var total
@@ -88,19 +88,20 @@ function setMarkerPosition(marker, position) {
 }
 
 https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=40.6655101,-73.89188969999998&destinations=40.6905615%2C-73.9976592%7C40.6905615%2C-73.9976592%7C40.6905615%2C-73.9976592%7C40.6905615%2C-73.9976592%7C40.6905615%2C-73.9976592%7C40.6905615%2C-73.9976592%7C40.659569%2C-73.933783%7C40.729029%2C-73.851524%7C40.6860072%2C-73.6334271%7C40.598566%2C-73.7527626%7C40.659569%2C-73.933783%7C40.729029%2C-73.851524%7C40.6860072%2C-73.6334271%7C40.598566%2C-73.7527626&key=AIzaSyAhyAn_HuNcl-1ifUQoLn9ixAHWo74QWp8
+ */
+    render() {
+        return (
+            <Fragment>
+                <div id="map-canvas"></div>
+                <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAhyAn_HuNcl-1ifUQoLn9ixAHWo74QWp8"></script>
+                <script
+                    src="https://code.jquery.com/jquery-3.3.1.js"
+                    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+                    crossorigin="anonymous"></script>
+                <button id="begin">Start Hike</button>
+                <button id="end">End Hike</button>
+            </Fragment>
+        )
 
-render(){
-    return (
-        <Fragment>
-            <div id="map-canvas"></div>
-            <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAhyAn_HuNcl-1ifUQoLn9ixAHWo74QWp8"></script>
-            <script
-                src="https://code.jquery.com/jquery-3.3.1.js"
-                integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-                crossorigin="anonymous"></script>
-            <button id="begin">Start Hike</button>
-            <button id="end">End Hike</button>
-        </Fragment>
-    )
-}
+    }
 }

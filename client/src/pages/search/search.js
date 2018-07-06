@@ -35,6 +35,3 @@ class TrailSearch extends Component {
 }
 
 export default TrailSearch
-
-
-

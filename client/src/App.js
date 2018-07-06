@@ -5,7 +5,7 @@ import Profile from "./pages/profile"
 import EditProfile from "./pages/editProfile"
 import Landing from "./pages/landing/landing"
 import Feed from "./pages/feed/feed";
-import NewUser from "./pages/newUser/newUser"
+import Register from "./pages/newUser/newUser"
 import Login from './pages/login/login'
 import TrailSearch from './pages/search/search'
 import Achievements from './pages/achievements/achievements'
@@ -17,7 +17,7 @@ class App extends Component {
           
           <Route exact path="/" component= {Landing}/>
           <Route exact path="/feed" component= {Feed}/>
-          <Route exact path="/newUser" component= {NewUser}/>
+          <Route exact path="/newUser" component= {Register}/>
           <Route exact path="/login" component= {Login}/>
           <Route exact path="/profile" component= {Profile}/>
           <Route exact path="/editProfile" component= {EditProfile}/>

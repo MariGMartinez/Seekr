@@ -40,7 +40,7 @@ export class MapContainer extends Component {
         let lng
         navigator.geolocation.getCurrentPosition((position) => {
 
-                lat= position.coords.latitude,
+                lat= position.coords.latitude
                 lng= position.coords.longitude
             
             return this.setState({ lat: lat, lng: lng })
@@ -107,7 +107,7 @@ export class MapContainer extends Component {
 
         return (
             <Row>
-                <Col s={12}>
+                <Col s={9}>
                 <Input 
                     placeholder="Address Number" 
                     s={5}
@@ -140,7 +140,7 @@ export class MapContainer extends Component {
                     {this.state.results.length? (
                     <Map style={style}
                         google={this.props.google} 
-                        zoom={8}
+                        zoom={10}
                         onClick={this.mapClicked}
                         centerAroundCurrentLocation={true}
                         center ={ {lat:this.state.lat, lng: this.state.lng}}
@@ -193,6 +193,27 @@ export class MapContainer extends Component {
             ) : (
                     <h3>There is no trails near by your location</h3>
             )}
+                </Col>
+                <Col s={4}>
+                    {this.state.results.length ? (
+                        <Row>
+
+                            {this.state.results.map(trail => {
+                                return (
+                                    <Card header={<CardTitle reveal image={trail.imgMedium} waves='light' />}
+                                        title={trail.name}
+                                        reveal={<p>{trail.summary}</p>}>
+    
+                                        <p><a href="#">This is a link</a></p>
+                                        <p>This trail is saved</p>
+                                    </Card>
+                                )}
+                            )}
+                        </Row>
+                    ) : (
+                    <h3>There is no trails near by your location</h3>
+                    )}
+
                 </Col>
             </Row>
         );
