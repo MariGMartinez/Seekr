@@ -2,12 +2,19 @@ import React, { Component, Fragment } from "react"
 import { Helmet } from "react-helmet"
 import FeedCard from "../../components/feedCard"
 import Navbar from "../../components/navbar"
+import stories from "../../components/feedCard/stories.json"
 
 class Feed extends Component {
+    state = {
+        stories
+    }
+
     render(){
+
         const feedCSS = {
-            background: {
-                backgroundColor: "#997733"
+            headingFont: {
+                fontFamily: "'Russo One', sans-serif",
+                marginLeft: "10px"
             }
         }
         return(
@@ -15,8 +22,19 @@ class Feed extends Component {
                <Helmet>
                    <style>{'body { background-color: #77AA99; }'}</style>
                </Helmet>
+               
+
+               
                <Navbar />
-               <FeedCard />
+               <h4 style={feedCSS.headingFont}>News</h4>
+               {this.state.stories.map(story => (
+                   <FeedCard 
+                   image = {story.image}
+                   link = {story.link}
+                   title = {story.title}
+                   source = {story.source}
+                   />
+               ))}
 
             
                
