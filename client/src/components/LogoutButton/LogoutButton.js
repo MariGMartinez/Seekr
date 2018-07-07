@@ -7,7 +7,7 @@ import "./LogoutButton.css";
 // That way we don't have to define them all individually
 const LogoutButton = props => (
     <Button
-        className='red'
+        id="logoutBtn"
         waves = "light"
         onClick = { props.onClick } >
         <strong>Logout</strong>
