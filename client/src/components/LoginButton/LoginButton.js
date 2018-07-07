@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from 'react-materialize'
+import { Link } from "react-router-dom";
 
 import "./LoginButton.css";
 
@@ -10,7 +11,7 @@ const LoginButton = props => (
         id="loginBtn"
         waves="light"
         onClick={props.onClick}>
-        <strong>Login</strong>
+        <Link to={"/feed"} >Login</Link>
     </Button>
 );
 

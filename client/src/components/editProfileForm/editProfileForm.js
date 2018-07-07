@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react"
-import { Row, Input, Button } from 'react-materialize'
+import { Row,  Input, Button } from 'react-materialize'
 import { USER } from "../../utils";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet"
@@ -54,18 +54,21 @@ class editProfileForm extends Component {
     };
 
     render() {
+        const feedCSS = {
+                color: "black"
+            }
+            var btnStyle = {
+                backgroundColor: "#869383",
+                color:"white"
+            }
+        
         return (
             <Fragment>
                  <Helmet>
-                <style>{'body { color: white; }'}</style>
+                <style>{'body { color: white; bottom-padding: 25px; }'}</style>
                </Helmet>
-                <div className="row">
-                    <div className="col s2"></div>
-                      
-                    <div className="col s2"></div>
-                </div>
                 <Row>
-                    <Input 
+                <Input
                         s={6} 
                         label={this.state.userAc.firstname}
                         value={this.state.firstname}
@@ -117,12 +120,12 @@ class editProfileForm extends Component {
                 </Row>
                 <br></br>
                 <div id="submitBtn">
-                    <Button 
+                    <Button style={btnStyle}
                         waves='light'
                         // disabled={!(this.state.username && this.state.password)}
                         onClick={this.handleFormSubmit}
                     >
-                        <Link to={"/"} >Save Changes</Link>
+                        <Link style={btnStyle} to={"/profile"} >Save Changes</Link>
                     </Button>
                 </div>
             </Fragment>

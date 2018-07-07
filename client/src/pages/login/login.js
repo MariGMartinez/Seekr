@@ -54,11 +54,12 @@ class Login extends Component {
 
         if (isLoggedIn) {
             button = <LogoutButton onClick={this.handleLogoutClick} />;
-            link = <Link to={"/profile"}><strong>{this.state.username} Logged In</strong></Link>
+            // link = <Link to={"/profile"}><strong>{this.state.username} Logged In</strong></Link>
         } else {
             button = <LoginButton
                 disabled={!(this.state.username && this.state.password)}
                 onClick={this.handleFormSubmit}
+                
             />
         }
 
@@ -126,6 +127,7 @@ class Login extends Component {
                     <br></br>
                     <div id="submitBtn">
                         {button} {link}
+                        
                     </div>
 
                 </div>

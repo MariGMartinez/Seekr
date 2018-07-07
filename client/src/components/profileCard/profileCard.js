@@ -27,14 +27,18 @@ class profileCard extends Component {
   
 
     render() {
+        var linkStyle = {
+            
+            color:"white"
+        }
        
         return (
         <Fragment>
-            <div className="row">
+            <div className="row profileCardCSS">
                 <div className="col s3"></div>
                     <div className="col s12 m6">
-                        <div className="card blue-grey darken-1 center-align">
-                            <Image cloudName='phamjosi'  publicId={this.state.userAc.profilePic } width='200' crop='scale' radius='max'/>
+                        <div className="card  small darken-1 center-align">
+                            <Image onError={Pin}cloudName='phamjosi'  publicId={this.state.userAc.profilePic } width='200' crop='scale' radius='max' background='#869383'/>
                             <div className="card-content white-text center-align">
                                 {/* data for username goes here */}
                                 <span className="card-title">{this.state.userAc.username}</span>
@@ -44,7 +48,7 @@ class profileCard extends Component {
                                 <p>{this.state.userAc.bio} </p>
                                 <p><img src={Pin} width={25} height={25} />{this.state.userAc.location} </p>
                                
-                                <Link to={"/editProfile"} >Edit Profile</Link>
+                                <Link style={linkStyle} to={"/editProfile"} >Edit Profile</Link>
                                 
                             </div>
                         </div>

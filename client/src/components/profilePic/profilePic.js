@@ -4,6 +4,7 @@ import axios from 'axios';
 import Dropzone from 'react-dropzone';
 import { USER } from "../../utils";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet"
 import "./profilePic.css";
 
 class profilePic extends Component {
@@ -15,7 +16,6 @@ class profilePic extends Component {
         userAc:[]
     };
 
-    
 
     onDrop= async files =>{
         this.setState({file:files[0]});
@@ -70,18 +70,22 @@ class profilePic extends Component {
     // }
 
     render() {
+        var btnStyle = {
+            backgroundColor: "#869383",
+            color:"white"
+        }
         return (
-            <Fragment>
-                    <div className= 'dropzone' > 
-                        <input  name='name' onChange={this.onChange} value={this.state.name} />
+            <Fragment >
+                    {/* <div className= 'dropzone' > 
+                        <input  name='name' onChange={this.onChange} value={this.state.name} /> */}
                         <Dropzone onDrop={this.onDrop}>
                             <p>Drop image file here</p>
                         </Dropzone>
                         {/* <input type="file" onChange={this.onChange} value={this.state.name} /> */}
-                        <Button  onClick={this.submit}>
-                        <Link to={"/profile"} >Save Changes</Link>
+                        <Button  style={btnStyle} onClick={this.submit}>
+                        <Link style={btnStyle} to={"/profile"} >Save Changes</Link>
                         </Button>   
-                    </div>
+                    {/* </div> */}
 
                 {/* <div className="App">
                 <input type="file" onChange={this.fileSelectedHandler}/>

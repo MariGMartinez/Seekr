@@ -200,14 +200,16 @@ export class MapContainer extends Component {
                 <Col s={12}>
                 
                 <Input 
-                    placeholder="Address Number" 
-                    s={5}
+                
+                placeholderTextColor="blue"
+                    placeholder="City or Zip Code" 
+                    s={12}
                     type="text"
                     value={this.state.addressNum}
                     name = "addressNum"
                     onChange={this.handleInputChange}
                      />
-                <Input
+                {/* <Input
                     placeholder="City"
                     s={2}
                     type="text"
@@ -222,7 +224,7 @@ export class MapContainer extends Component {
                     value={this.state.state}
                     name="state"
                     onChange={this.handleInputChange}
-                />
+                /> */}
                 
 
                 <Button className='red' waves='light' 
@@ -292,8 +294,8 @@ export class MapContainer extends Component {
                                 <i class={this.state.class4} style={{ color: 'red' }}></i>
                                 <i class={this.state.class5} style={{ color: 'red' }}></i>
 
-                                <p><a href={this.state.selectedPlace.link}>This is a link</a></p>
-                                <p>This trail is saved</p>
+                                <p><a href={this.state.selectedPlace.link}>View Trail</a></p>
+                                
 
 
                             </Card>

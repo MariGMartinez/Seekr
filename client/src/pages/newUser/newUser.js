@@ -127,7 +127,7 @@ class NewUser extends Component {
                         onClick={this.handleFormSubmit}
                         href="/feed"
                         >
-                        Sign up
+                        <Link  to={"/feed"} >Sign UP</Link> 
                     </Button>
                 </div>
                         </div>

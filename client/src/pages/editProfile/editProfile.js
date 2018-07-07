@@ -8,13 +8,16 @@ import ProfilePic from "../../components/profilePic"
 
 class EditProfile extends Component {
     render(){
+        var cardStyle = {
+            padding: '10px',
+        }
         return(
            <Fragment>
                <Helmet>
                 <style>{'body { background-color: #96b5c9; }'}</style>
                </Helmet>
-               <Navbar />
-               <ProfileCard />
+               <Navbar  />
+               <ProfileCard style={cardStyle} />
                <ProfilePic />
                <EditProfileForm />
            </Fragment> 

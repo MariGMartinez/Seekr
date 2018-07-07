@@ -10,7 +10,7 @@ class userStats extends Component {
     render() {
         return (
             <Fragment>
-                <Card>
+                <Card className='small'>
                     <Row className=''>
                     <Col s={4} className='center-align '  >
                         <img src={Trek}width={50} height={50} />

@@ -1,5 +1,6 @@
 import {Tabs, Tab, Dropdown, Button, NavItem} from "react-materialize"
 import Navbar from "../../components/navbar"
+import { Helmet } from "react-helmet"
 import {USER} from "../../utils";
 import {Image} from 'cloudinary-react';
 import React, {Component} from "react"
@@ -9,6 +10,7 @@ import bearpaw from '../../images/achievements/BearPaw.png'
 import bike from '../../images/achievements/Bike.png'
 import binoculars from '../../images/achievements/Binoculars.png'
 import compass from '../../images/achievements/compass.png'
+import intents from '../../images/achievements/intents.png'
 import fire from '../../images/achievements/Fire.png'
 import firstaid from '../../images/achievements/FirstAid.png'
 import flashlight from '../../images/achievements/Flashlight.png'
@@ -99,7 +101,15 @@ class Achievements extends Component{
                  points: 10 ,
                  miles: "1-3"
                  
-            } ],
+            }, 
+            {
+                name: "Man, that trip was in tents!",
+                img: intents,
+                color: "#D79922",
+                points: 100 ,
+                miles: "1-3"
+                
+           }],
             toggle: true
         }
         
@@ -124,17 +134,27 @@ class Achievements extends Component{
 
 
     render (){
-        return <div style={{backgroundColor: "#5085A5", fontFamily: "sans-serif", fontSize: "18px", fontWeight:"600"}}> 
+        return <div style={{ fontFamily: "sans-serif", fontSize: "18px", fontWeight:"600"}}> 
+           <Helmet>
+                <style>{'body { background-color: #96b5c9; }'}</style>
+            </Helmet>
             <Navbar />
     
-            <div style={{padding:"20px", height: "300px"}}>
+            {/* <div style={{padding:"20px", height: "300px"}}>
           
-            <div style ={{margin: "0 auto", textAlign:"center", borderRadius:"100%", height:"300px", width:"300px", backgroundColor:"#F7F9FB"}}>
-            <img src={mari} style={{width: "100%", height: "300px", borderRadius: "100%"}}/>
+            <div style ={{margin: "0 auto", textAlign:"center", borderRadius:"100%", height:"300px", width:"300px", backgroundColor:"#F7F9FB"}}> */}
+            {/* <img src={mari} style={{width: "100%", height: "300px", borderRadius: "100%"}}/> */}
            
-            {/*<Image cloudName='phamjosi'  publicId={this.state.userAc.profilePic } width='200' crop='scale' radius='max'/>*/}
-            </div>   
+            <div className="card  small darken-1 center-align">
+                            <Image cloudName='phamjosi'  publicId={this.state.userAc.profilePic } width='200' crop='scale' radius='max' background='#869383'/>
+                            <div>
+                                <span className="card-title">{this.state.userAc.username}</span>
+                                </div>
             </div>
+            
+            
+            {/* </div>   
+            </div> */}
             <div style={{marginBottom: "50px", marginTop: "50px", textAlign: "center" }}>
                 <Dropdown trigger={
                     <Button style={{backgroundColor:"#2E9CCA"}}>Achievements</Button>
