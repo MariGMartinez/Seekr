@@ -43,7 +43,7 @@ class NewUser extends Component {
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
-                height: "667px"
+                height: "700px"
             }
         }
         return (

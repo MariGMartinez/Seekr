@@ -183,7 +183,6 @@ class Achievements extends Component{
             <img className="size"src={thermocoffee}/>
             <img className="size"src={watch}/>*/}
             </div>
-
     }
       
     
