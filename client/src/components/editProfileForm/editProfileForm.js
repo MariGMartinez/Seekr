@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react"
 import { Row, Input, Button } from 'react-materialize'
 import { USER } from "../../utils";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet"
 import "./editProfileForm.css"
 
 class editProfileForm extends Component {
@@ -11,6 +12,7 @@ class editProfileForm extends Component {
         age: "",
         bio: "",
         email: "",
+        location: "",
         isLoggedIn: sessionStorage.isLoggedIn,
         userId: sessionStorage.userId,
         userAc:[]
@@ -54,6 +56,9 @@ class editProfileForm extends Component {
     render() {
         return (
             <Fragment>
+                 <Helmet>
+                <style>{'body { color: white; }'}</style>
+               </Helmet>
                 <div className="row">
                     <div className="col s2"></div>
                       
@@ -91,7 +96,7 @@ class editProfileForm extends Component {
                         name="age"
                         placeholder={this.state.userAc.age}
                     />
-                       {/* <Input 
+                       <Input 
                         type="email" 
                         label="Location" 
                         s={12}
@@ -99,7 +104,7 @@ class editProfileForm extends Component {
                         onChange={this.handleInputChange}
                         name="location"
                         placeholder={this.state.userAc.location}
-                    /> */}
+                    />
                     <Input 
                         type="textarea" 
                         label="Bio" 

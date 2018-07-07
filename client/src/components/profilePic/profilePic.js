@@ -15,6 +15,8 @@ class profilePic extends Component {
         userAc:[]
     };
 
+    
+
     onDrop= async files =>{
         this.setState({file:files[0]});
     };
@@ -70,14 +72,15 @@ class profilePic extends Component {
     render() {
         return (
             <Fragment>
-                    <div> 
-                        <input name='name' onChange={this.onChange} value={this.state.name} />
+                    <div className= 'dropzone' > 
+                        <input style={dropzoneStyle} name='name' onChange={this.onChange} value={this.state.name} />
                         <Dropzone onDrop={this.onDrop}>
-                            <p>Drop file here</p>
+                            <p>Drop image file here</p>
                         </Dropzone>
+                        {/* <input type="file" onChange={this.onChange} value={this.state.name} />
                         <Button  onClick={this.submit}>
                         <Link to={"/profile"} >Save Changes</Link>
-                        </Button>
+                        </Button>    */}
                     </div>
 
                 {/* <div className="App">

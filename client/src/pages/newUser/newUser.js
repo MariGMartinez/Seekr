@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react"
 import { USER } from "../../utils";
+import { Helmet } from "react-helmet"
 import { Link } from "react-router-dom";
 import { Row, Input, Button } from 'react-materialize'
 import "../../components/registerForm/registerForm.css"
@@ -36,6 +37,9 @@ class NewUser extends Component {
     render() {
         return (
             <Fragment>
+                <Helmet>
+                <style>{'body { background-color: #96b5c9; }'}</style>
+               </Helmet>
                 <div className="row">
                     <div className="col s2"></div>
                         <div className="col s8">

@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Helmet } from "react-helmet"
 import { Row } from 'react-materialize'
 import MapContainer from "../../components/MapContainer"
+
 import Navbar from "../../components/navbar"
 
 import '../search/search.css'
@@ -10,6 +11,7 @@ import '../search/search.css'
 
 class TrailSearch extends Component {
 
+    
     render() {
 
         const searchCSS = {
@@ -27,6 +29,7 @@ class TrailSearch extends Component {
                <Row>
                    
                     <MapContainer />
+                    
                 
                 </Row> 
             </Fragment>

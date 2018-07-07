@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from "react";
-import logo from '../../images/fish.jpg';
+import Pin from '../../images/pin.png';
 import "./profileCard.css";
 import {USER} from "../../utils";
 import {Image} from 'cloudinary-react';
+import { Link } from "react-router-dom";
+
 
 
 class profileCard extends Component {
@@ -25,24 +27,25 @@ class profileCard extends Component {
   
 
     render() {
-        const profileCardCSS = {
-            background: {
-                backgroundColor: "#117755",
-                borderRadius: "5px"
-            }
-        }
+       
         return (
         <Fragment>
             <div className="row">
                 <div className="col s3"></div>
                     <div className="col s12 m6">
                         <div className="card blue-grey darken-1 center-align">
-                            <Image cloudName='phamjosi' publicId={this.state.userAc.profilePic} width='200' crop='scale' />
+                            <Image cloudName='phamjosi'  publicId={this.state.userAc.profilePic } width='200' crop='scale' radius='max'/>
                             <div className="card-content white-text center-align">
                                 {/* data for username goes here */}
                                 <span className="card-title">{this.state.userAc.username}</span>
                                 {/* data for location goes here */}
-                                <p> new </p>
+                                {/* <p> {this.state.userAc.firstname} {this.state.userAc.lastname} </p> */}
+                                {/* <p> {this.state.userAc.age} </p> */}
+                                <p>{this.state.userAc.bio} </p>
+                                <p><img src={Pin} width={25} height={25} />{this.state.userAc.location} </p>
+                               
+                                <Link to={"/editProfile"} >Edit Profile</Link>
+                                
                             </div>
                         </div>
                     </div>
