@@ -9,7 +9,7 @@ class Navbars extends Component {
   render() {
     const navbarCSS = {
       background: {
-        backgroundColor: "#546E7A"
+        backgroundColor: "#203542"
       }
     }
     return (
