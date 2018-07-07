@@ -13,6 +13,7 @@ const UserSchema = new Schema({
     bio: String,
     age: String,
     location: String,
+    milesHiked: Number,
     savedTrails: [{type: mongoose.Schema.Types.ObjectId, ref: 'Trail'}],
     roles: []
 });

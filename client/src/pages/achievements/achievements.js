@@ -1,5 +1,7 @@
 import {Tabs, Tab, Dropdown, Button, NavItem} from "react-materialize"
 import Navbar from "../../components/navbar"
+import {USER} from "../../utils";
+import {Image} from 'cloudinary-react';
 import React, {Component} from "react"
 import bear from '../../images/achievements/Bear.png'
 import backpack from '../../images/achievements/Backpack.png'
@@ -41,6 +43,9 @@ class Achievements extends Component{
     constructor(props){
         super(props)
         this.state = {
+            isLoggedIn: sessionStorage.isLoggedIn,
+            userId: sessionStorage.userId,
+            userAc:[],
             user: "",
             earnedBadges: [ 
                 { 
@@ -89,7 +94,16 @@ class Achievements extends Component{
         }
         
     }
-    
+    componentDidMount(){
+        this.loadUser(this.state.userId)
+      }
+    loadUser =(id)=>{
+        USER.getUser(id)
+            .then(res=>{
+                this.setState({userAc: res.data})
+                console.log(res.data)
+            })
+    }
     
 
    toggle(){
@@ -104,7 +118,7 @@ class Achievements extends Component{
             <Navbar />
             <div style={{padding:"20px", height: "300px"}}>
             <div style ={{margin: "0 auto", textAlign:"center", borderRadius:"100%", height:"300px", width:"300px", backgroundColor:"blue"}}>
-                <img src={{}}/>
+            <Image cloudName='phamjosi'  publicId={this.state.userAc.profilePic } width='200' crop='scale' radius='max'/>
             </div>   
             </div>
             <div style={{marginBottom: "50px", marginTop: "50px", textAlign: "center", }}>
