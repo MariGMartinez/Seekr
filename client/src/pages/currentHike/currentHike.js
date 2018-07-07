@@ -5,13 +5,17 @@ import { Row, Col, Input, Button } from 'react-materialize'
 import LoginButton from "../../components/LoginButton"
 import LogoutButton from "../../components/LogoutButton"
 import MapHike from "../../components/MapHike"
+import Navbar from "../../components/navbar"
 
-class CurrentHike extends Component{
+class MapHikePage extends Component{
 render(){
     return(
-        <MapHike/>
+        <Fragment>
+        <Navbar />
+        <MapHike />
+        </Fragment>
     )
 }
 }
 
-export default CurrentHike
+export default MapHikePage

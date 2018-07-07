@@ -20,7 +20,7 @@ class Feed extends Component {
         return(
            <Fragment>
                <Helmet>
-                   <style>{'body { background-color: #77AA99; }'}</style>
+                   <style>{'body { background-color: #96b5c9; }'}</style>
                </Helmet>
                
 
