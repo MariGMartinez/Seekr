@@ -11,6 +11,7 @@ router.route("/login/:username")
 router.route("/:id")
     .get(usersController.findById)
     .put(usersController.update)
+    .put(usersController.addTrail)
     .delete(usersController.remove);
 
 module.exports = router;

@@ -46,6 +46,18 @@ const UsersController = {
             .then(dbModel => {res.json(dbModel)})
             .catch(err => res.status(422).json(err));
     },
+    addTrail: function (req, res) {
+        db.User
+            /* .update(
+                {_id: {$in: req.params.id}},
+                { $push:req.body },
+                {new: true, upsert: true, safe: true}) */
+            //.findById(req.params.id)
+            .then(dbModel => {
+                dbModel.insertMany(req.body)
+                res.json(dbModel)})
+            .catch(err => res.status(422).json(err));
+    },
     remove: function (req, res) {
         db.User
             .findById({ _id: req.params.id })

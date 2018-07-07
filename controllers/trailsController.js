@@ -9,6 +9,16 @@ const TrailsController = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+    findByName: function(req,res) {
+        db.Trail
+            //.where({ name: req.params.name })
+            .findOne({ id: req.params.id },(err,dbModel)=>{
+                if(err) throw err
+                console.log(dbModel)
+                return res.json(dbModel)
+            })
+            .catch(err => res.status(422).json(err));
+    },
     findById: function (req, res) {
         db.Trail
             .findById(req.params.id)
