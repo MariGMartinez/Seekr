@@ -55,7 +55,7 @@ export class MapContainer extends Component {
         return (
             <Row >
 
-                <Col s={6}>
+                <Col s={12}>
                     {this.state.trails.length ? (
                         <Collapsible popout >
 
