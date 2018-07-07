@@ -99,13 +99,13 @@ export class MapContainer extends Component {
 
   render() {
     const style = {
-      width: '64vw',
+      width: '100%',
       height: '100vh'
     }
 
     return (
-      <Row>
-        <Col s={8}>
+      <Row id="pos">
+        <Col s={12} id="pos">
 
           <Map style={style}
             google={this.props.google}
@@ -114,7 +114,6 @@ export class MapContainer extends Component {
             onClick={this.mapClicked}
             //centerAroundCurrentLocation={false}
             center={{ lat: this.state.lat, lng: this.state.lng }}>
-
 
             <Marker
               onClick={this.onMarkerClick}
@@ -126,18 +125,15 @@ export class MapContainer extends Component {
 
             </InfoWindow>
           </Map>
-
-        </Col>
-        <Col s={4}>
-          <Row>
-            <Button className='red' waves='light' onClick={() => this.startHike()}>Start Hike</Button>
+          <Row id="pos">
+            <Button className='red' waves='light' id='start' onClick={() => this.startHike()}>Start Hike</Button>
           </Row>
-          <Row>
-            <Button className='red' waves='light' onClick={() => this.endHike()} >End Hike</Button>
+          <Row id="pos">
+            <Button className='red' waves='light' id='end' onClick={() => this.endHike()} >End Hike</Button>
           </Row>
-          <Row>
-            <h5>Distance Traveled: </h5><h5 id='distance'></h5>
-            <h5>Time: </h5><h5 id='time'></h5>
+          <Row id="pos">
+            <h6>Distance Traveled: </h6><h6 id='distance'></h6>
+            <h6>Time: </h6><h6 id='time'></h6>
           </Row>
         </Col>
       </Row>
