@@ -43,7 +43,8 @@ export class MapContainer extends Component {
                 lat= position.coords.latitude
                 lng= position.coords.longitude
             
-            return this.setState({ lat: lat, lng: lng })
+            this.setState({ lat: lat, lng: lng })
+            this.searchTrails(this.state.lat, this.state.lng)
            
         })
         
@@ -93,7 +94,7 @@ export class MapContainer extends Component {
             API.searchAddress(formattedAddress)
                 .then(res => {this.setState({ lat: res.data.results[0].geometry.location.lat,
                                             lng: res.data.results[0].geometry.location.lng})
-                            console.log(res.data)
+                    this.searchTrails(this.state.lat, this.state.lng)
                 })
                 .catch(err => console.log(err));
         }
