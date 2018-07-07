@@ -24,6 +24,7 @@ import swissarmyknife from '../../images/achievements/SwissArmyKnife.png'
 import thermocoffee from '../../images/achievements/ThermoCoffee.png'
 import watch from '../../images/achievements/Watch.png'
 import "./achievements.css"
+import mari from '../../images/achievements/mari.jpg';
 class Achievements extends Component{
     //psuedo code//
     //import api from utils folder
@@ -47,48 +48,57 @@ class Achievements extends Component{
             userId: sessionStorage.userId,
             userAc:[],
             user: "",
-            earnedBadges: [ 
+            availableBadges: [ 
                 { 
-                    name: "Killing it",
-                    img: bear,
-                    color: "orange",
-                    points: 20 
+                    name: "Moderate Hike",
+                    img: hotdogstick,
+                    color: "#464866",
+                    points: 15 ,
+                    miles: "4-7"
+                
                 },
                 {  
-                    name: "Easy hike", 
-                    img: backpack,
-                    color: "orange",
-                    points: 20 
+                    name: "Strenuous Hike-Killing it!", 
+                    img: bear,
+                    color: "#464866",
+                    points: 20 ,
+                    miles: "7-12"
                 }, 
                 {
-                     name: "A",
+                     name: "Ultra Hike-More than a Conqueror!",
                      img: bearpaw,
-                     color: "orange",
-                     points: 20 
+                     color: "#464866",
+                     points: 25,
+                     miles: "15-25"
                  },
                  {
-                      name: "B",
-                      img: bike,
-                      color: "orange",
-                      points: 20 
+                      name: "State Park Beauties",
+                      img: map,
+                      color:"#464866",
+                      points: 30,
+                      miles: "25-40"
                  },  
                  { 
-                     name: "C",
-                     img:binoculars,
-                     color: "orange",
-                     points: 20 
+                     name: "National Park Hike",
+                     img:compass,
+                     color: "#464866",
+                     points: 20 ,
+                     miles: "40-60"
                 } ],
-            availableBadges: [  {
-                name: "A",
-                img: bearpaw,
-                color: "orange",
-                points: 20 
+            earnedBadges: [  {
+                name: "1st Hike-You did it!",
+                img: hikingboot,
+                color: "#D79922",
+                points: 5,
+                miles:"1"
             },
             {
-                 name: "B",
-                 img: compass,
-                 color: "orange",
-                 points: 20 
+                 name: "Easy Hike-Keep it up!",
+                 img: backpack,
+                 color: "#D79922",
+                 points: 10 ,
+                 miles: "1-3"
+                 
             } ],
             toggle: true
         }
@@ -114,16 +124,21 @@ class Achievements extends Component{
 
 
     render (){
-        return <div> 
+        return <div style={{backgroundColor: "#5085A5", fontFamily: "sans-serif", fontSize: "18px", fontWeight:"600"}}> 
             <Navbar />
+    
             <div style={{padding:"20px", height: "300px"}}>
-            <div style ={{margin: "0 auto", textAlign:"center", borderRadius:"100%", height:"300px", width:"300px", backgroundColor:"blue"}}>
-            <Image cloudName='phamjosi'  publicId={this.state.userAc.profilePic } width='200' crop='scale' radius='max'/>
+          
+            <div style ={{margin: "0 auto", textAlign:"center", borderRadius:"100%", height:"300px", width:"300px", backgroundColor:"#F7F9FB"}}>
+            <img src={mari} style={{width: "100%", height: "300px", borderRadius: "100%"}}/>
+           
+            {/*<Image cloudName='phamjosi'  publicId={this.state.userAc.profilePic } width='200' crop='scale' radius='max'/>*/}
             </div>   
             </div>
-            <div style={{marginBottom: "50px", marginTop: "50px", textAlign: "center", }}>
+            <div style={{marginBottom: "50px", marginTop: "50px", textAlign: "center" }}>
                 <Dropdown trigger={
-                    <Button>Achievements</Button>
+                    <Button style={{backgroundColor:"#2E9CCA"}}>Achievements</Button>
+
                 }>
                 <NavItem onClick={() => this.toggle()}>Earned Badges</NavItem>
                 <NavItem onClick={() => this.toggle()}>Available Badges</NavItem>
@@ -131,32 +146,38 @@ class Achievements extends Component{
             </div>
             <div >
                
-                { this.state.toggle ? <div style={{display: "grid", gridGap: "10px",  gridTemplateColumns: "repeat(3, 1fr)"}}>
+                { this.state.toggle ? <div style={{display: "grid", gridGap: "10px",  gridTemplateColumns: "repeat(1, 1fr)"}}>
                     {this.state.earnedBadges.map((badge, index) => {
                         return (
                             <div style={{
                                 alignSelf: "center",
                                 justifySelf: "center"}}>
-                                <div style={{width: "300px", boxShadow: "5px 5px 25px 0px rgba(46,61,73,0.2)", borderRadius: "0.375rem", textAlign: "center", padding: "15px"}}>
-                                <div style={{width: "95px", height: "95px", backgroundColor: badge.color, margin:"0 auto", borderRadius:"100%"}}>
-                                    <img  className="size" src={badge.img}/>
+                                <div className="card">
+                                <div style={{width: "100px", height: "100px", backgroundColor: badge.color, margin:"0 auto", borderRadius:"100%"}}>
+                                    <div style={{position: "relative", marginLeft: "10px"}}>
+                                        <img  className="size" src={badge.img}/>
+                                    </div>
                                 </div>
-                                <p>{badge.name}</p>
-                                <p>{badge.points}</p>
+                                <p>Achievement: {badge.name}</p>
+                                <p>Points {badge.points}</p>
+                                <p>Miles {badge.miles}</p>
                                 </div>
                             </div>
                        )
                     })}
-                </div> : <div style={{display: "grid", gridGap: "10px",  gridTemplateColumns: "repeat(3, 1fr)"}}> {this.state.availableBadges.map((badge, index) => {
+                </div> : <div style={{display: "grid", gridGap: "10px",  gridTemplateColumns: "repeat(1, 1fr)"}}> {this.state.availableBadges.map((badge, index) => {
                         return (<div style={{
                                 alignSelf: "center",
                                 justifySelf: "center"}}>
-                                <div style={{width: "300px", boxShadow: "5px 5px 25px 0px rgba(46,61,73,0.2)", borderRadius: "0.375rem", textAlign: "center", padding: "15px"}}>
-                                <div style={{width: "95px", height: "95px", backgroundColor: badge.color, margin:"0 auto", borderRadius:"100%"}}>
+                                <div className="card">
+                                <div style={{width: "100px", height: "100px", backgroundColor: badge.color, margin:"0 auto", borderRadius:"100%"}}>
+                                <div style={{position: "relative", marginLeft: "10px"}}>
                                     <img  className="size" src={badge.img}/>
+                                    </div>
                                 </div>
-                                <p>{badge.name}</p>
-                                <p>{badge.points}</p>
+                                <p>Achievement: {badge.name}</p>
+                                <p>Points {badge.points}</p>
+                                <p>Miles {badge.miles}</p>
                                 </div>
                             </div>)
                     })}</div> }
