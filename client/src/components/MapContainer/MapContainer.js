@@ -141,7 +141,7 @@ export class MapContainer extends Component {
                     {this.state.results.length? (
                     <Map style={style}
                         google={this.props.google} 
-                        zoom={10}
+                        zoom={8}
                         onClick={this.mapClicked}
                         centerAroundCurrentLocation={true}
                         center ={ {lat:this.state.lat, lng: this.state.lng}}
@@ -203,7 +203,8 @@ export class MapContainer extends Component {
                                 return (
                                     <Card header={<CardTitle reveal image={trail.imgMedium} waves='light' />}
                                         title={trail.name}
-                                        reveal={<p>{trail.summary}</p>}>
+                                        reveal={<p>{trail.summary}</p>}
+                                        actions={<Button floating large className='red' waves='light' icon='add' onClick={()=>this.addToUser(trail.id)} />}>
     
                                         <p><a href="#">This is a link</a></p>
                                         <p>This trail is saved</p>
