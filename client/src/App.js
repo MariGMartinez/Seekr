@@ -9,12 +9,13 @@ import Register from "./pages/newUser/newUser"
 import Login from './pages/login/login'
 import TrailSearch from './pages/search/search'
 import Achievements from './pages/achievements/achievements'
+import CurrentHike from './pages/currentHike/currentHike'
 class App extends Component {
   render() {
     return (
       <Router>
         <Fragment>
-          
+    
           <Route exact path="/" component= {Landing}/>
           <Route exact path="/feed" component= {Feed}/>
           <Route exact path="/newUser" component= {Register}/>
@@ -23,7 +24,8 @@ class App extends Component {
           <Route exact path="/editProfile" component= {EditProfile}/>
           <Route exact path="/search" component = {TrailSearch}/>
           <Route exact path="/achievements" component = {Achievements}/>
-          
+          <Route exact path="/currenthike" component = {CurrentHike}/>
+
         </Fragment>
 
       </Router>

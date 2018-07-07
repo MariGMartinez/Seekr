@@ -1,5 +1,5 @@
 import {Tabs, Tab, Dropdown, Button, NavItem} from "react-materialize"
-
+import Navbar from "../../components/navbar"
 import React, {Component} from "react"
 import bear from '../../images/achievements/Bear.png'
 import backpack from '../../images/achievements/Backpack.png'
@@ -101,6 +101,7 @@ class Achievements extends Component{
 
     render (){
         return <div> 
+            <Navbar />
             <div style={{padding:"20px", height: "300px"}}>
             <div style ={{margin: "0 auto", textAlign:"center", borderRadius:"100%", height:"300px", width:"300px", backgroundColor:"blue"}}>
                 <img src={{}}/>

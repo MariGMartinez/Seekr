@@ -13,6 +13,9 @@ export const USER = {
     updateUser: function (id, item) {
         return axios.put("/api/users/" + id, item)
     },
+    addTrail: function (id, item) {
+        return axios.put("/api/users/" + id, item)
+    },
     deleteUser: function (id) {
         return axios.delete("/api/users/" + id);
     },

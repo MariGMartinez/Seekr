@@ -73,14 +73,14 @@ class profilePic extends Component {
         return (
             <Fragment>
                     <div className= 'dropzone' > 
-                        <input style={dropzoneStyle} name='name' onChange={this.onChange} value={this.state.name} />
+                        <input  name='name' onChange={this.onChange} value={this.state.name} />
                         <Dropzone onDrop={this.onDrop}>
                             <p>Drop image file here</p>
                         </Dropzone>
-                        {/* <input type="file" onChange={this.onChange} value={this.state.name} />
+                        {/* <input type="file" onChange={this.onChange} value={this.state.name} /> */}
                         <Button  onClick={this.submit}>
                         <Link to={"/profile"} >Save Changes</Link>
-                        </Button>    */}
+                        </Button>   
                     </div>
 
                 {/* <div className="App">

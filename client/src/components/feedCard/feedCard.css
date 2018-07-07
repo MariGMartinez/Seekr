@@ -1,12 +1,12 @@
 #newsTitle {
     font-size: 22px;
-    color: black;
+    color: #F7F9FB;
     padding: 5px 0 5px 0;
     font-family: 'Kanit', sans-serif;
 }
 div.small.card {
     height: 60%;
-    background-color: #D8E9E4;
+    background-color: #869383;
     width: 90%;
     margin: auto;
     margin-top: 15px;

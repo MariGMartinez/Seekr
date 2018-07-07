@@ -5,7 +5,8 @@ const trailsController = require("../../controllers/trailsController.js");
 router.route("/")
     .get(trailsController.findAll)
     .post(trailsController.create);
-
+router.route("/find/:id")
+    .get(trailsController.findByName)
 // Matches with "/api/trails/:id"
 router.route("/:id")
     .get(trailsController.findById)

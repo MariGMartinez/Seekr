@@ -9,7 +9,7 @@ class Navbars extends Component {
   render() {
     const navbarCSS = {
       background: {
-        backgroundColor: "#546E7A"
+        backgroundColor: "#203542"
       }
     }
     return (
@@ -18,6 +18,8 @@ class Navbars extends Component {
           <NavItem href="/feed">Home</NavItem>
           <NavItem href="/search">Trail Search</NavItem>
           <NavItem href='/profile'>Profile</NavItem>
+          <NavItem href='/currenthike'>Current Hike</NavItem>
+          <NavItem href='/achievements'>Achievements</NavItem>
         </Navbar>
       </Fragment>
     )

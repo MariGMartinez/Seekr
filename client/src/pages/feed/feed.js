@@ -14,13 +14,14 @@ class Feed extends Component {
         const feedCSS = {
             headingFont: {
                 fontFamily: "'Russo One', sans-serif",
-                marginLeft: "10px"
+                marginLeft: "10px",
+                color: "black"
             }
         }
         return(
            <Fragment>
                <Helmet>
-                   <style>{'body { background-color: #77AA99; }'}</style>
+                   <style>{'body { background-color: #96b5c9; }'}</style>
                </Helmet>
                
 
