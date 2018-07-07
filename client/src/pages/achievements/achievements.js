@@ -101,15 +101,16 @@ class Achievements extends Component{
                  points: 10 ,
                  miles: "1-3"
                  
-            }, 
-            {
-                name: "Man, that trip was in tents!",
-                img: intents,
-                color: "#D79922",
-                points: 100 ,
-                miles: "1-3"
+            }
+        //     {
+        //         name: "Man, that trip was in tents!",
+        //         img: intents,
+        //         color: "#D79922",
+        //         points: 100 ,
+        //         miles: "1-3"
                 
-           }],
+        //    }],
+        ],
             toggle: true
         }
         
