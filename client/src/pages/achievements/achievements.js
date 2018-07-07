@@ -100,9 +100,8 @@ class Achievements extends Component{
 
 
     render (){
-        return (
-            <div> 
-                <Navbar />
+        return <div> 
+            <Navbar />
             <div style={{padding:"20px", height: "300px"}}>
             <div style ={{margin: "0 auto", textAlign:"center", borderRadius:"100%", height:"300px", width:"300px", backgroundColor:"blue"}}>
                 <img src={{}}/>
@@ -170,7 +169,6 @@ class Achievements extends Component{
             <img className="size"src={thermocoffee}/>
             <img className="size"src={watch}/>*/}
             </div>
-        )
     }
       
     

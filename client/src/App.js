@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import "./App.css";
-import Profile from "./pages/profile"
-import EditProfile from "./pages/editProfile"
+import Profile from "./pages/profile/profile"
+import EditProfile from "./pages/editProfile/editProfile"
 import Landing from "./pages/landing/landing"
 import Feed from "./pages/feed/feed";
 import Register from "./pages/newUser/newUser"

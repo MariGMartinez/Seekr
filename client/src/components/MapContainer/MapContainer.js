@@ -1,15 +1,16 @@
-import React, { Component} from "react"
+import React, { Component } from "react"
 import "./MapContainer.css";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import { Row, Col, Input, Button, Card, CardTitle, Icon } from 'react-materialize'
 import { API, USER } from "../../utils";
+import Pin from '../../images/pin.png';
 import SaveButton from "../SaveButton"
 import CardList from "../CardList"
 
 
 
 export class MapContainer extends Component {
-    state ={
+    state = {
         results: [],
         trails: [],
         savedTrails: [],
@@ -79,28 +80,28 @@ export class MapContainer extends Component {
             this.searchTrails(this.state.lat, this.state.lng)
            
         })
-        
+
     }
-    searchTrails = (lat,lng) => {
-        API.searchTrails(lat,lng)
+    searchTrails = (lat, lng) => {
+        API.searchTrails(lat, lng)
             .then(res => this.setState({ results: res.data.trails })
             )
             .catch(err => console.log(err));
     }
-    onInfoWindowClose =()=> {
+    onInfoWindowClose = () => {
         this.setState({
             showingInfoWindow: false,
             activeMarker: null
         })
     }
-    mapClicked =(mapProps, map, event)=> {
+    mapClicked = (mapProps, map, event) => {
         this.setState({
             lat: event.latLng.lat(), lng: event.latLng.lng()
         })
         this.searchTrails(this.state.lat, this.state.lng)
-       
+
     }
-    onMarkerClick = (props, marker, e)=> {
+    onMarkerClick = (props, marker, e) => {
         this.setState({
             selectedPlace: props,
             activeMarker: marker,
@@ -108,7 +109,7 @@ export class MapContainer extends Component {
         });
         this.handleStar(this.state.selectedPlace.stars)
     }
-    saveTrail = (trail) =>{
+    saveTrail = (trail) => {
         API.saveTrail(trail)
             .then(res => {this.loadTrails()})
             .catch(err => console.log(err));
@@ -122,7 +123,7 @@ export class MapContainer extends Component {
     codeAddress = event => {
         event.preventDefault();
         if (this.state.addressNum) {
-           let address = `${this.state.addressNum},+${this.state.city},+${this.state.state}`
+            let address = `${this.state.addressNum},+${this.state.city},+${this.state.state}`
             const formattedAddress = address.split(" ").join("+")
             API.searchAddress(formattedAddress)
                 .then(res => {this.setState({ lat: res.data.results[0].geometry.location.lat,
@@ -306,7 +307,8 @@ export class MapContainer extends Component {
                 </Col>
                 
             </Row>
-        );
+                
+    );
     }
 }
 

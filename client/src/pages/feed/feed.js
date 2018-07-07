@@ -14,7 +14,8 @@ class Feed extends Component {
         const feedCSS = {
             headingFont: {
                 fontFamily: "'Russo One', sans-serif",
-                marginLeft: "10px"
+                marginLeft: "10px",
+                color: "black"
             }
         }
         return(

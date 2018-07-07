@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react"
 import { USER } from "../../utils";
+import { Helmet } from "react-helmet"
 import { Link } from "react-router-dom";
-import { Helmet } from  "react-helmet"
 import { Row, Input, Button } from 'react-materialize'
 import "../../components/registerForm/registerForm.css"
 import HikerBeach from "../../images/register/hikerBeach.jpg"
