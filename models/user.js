@@ -13,7 +13,7 @@ const UserSchema = new Schema({
     bio: String,
     age: String,
     location: String,
-    savedTrails: {type: mongoose.Schema.Types.ObjectId, ref: 'Trail'},
+    savedTrails: [{type: mongoose.Schema.Types.ObjectId, ref: 'Trail'}],
     roles: []
 });
 UserSchema.pre("save", function (next) {

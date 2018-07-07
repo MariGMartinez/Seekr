@@ -7,9 +7,13 @@ import "./SaveButton.css";
 // That way we don't have to define them all individually
 const SaveButton = props => (
     <Button
-        className='green'
+        floating
+        large
+        className='red'
         waves="light"
-        onClick={props.onClick}>
+        icon="add"
+        onClick={props.onClick}
+        {...props}>
         <strong>Save</strong>
     </Button>
 );

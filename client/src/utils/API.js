@@ -10,6 +10,9 @@ export const API = {
     getTrails: function () {
         return axios.get("/api/trails");
     },
+    findTrailByName: function (id){
+        return axios.get("/api/trails/find/" + id)
+    },
     getTrail: function (id) {
         return axios.get("/api/trails/" + id);
     },
