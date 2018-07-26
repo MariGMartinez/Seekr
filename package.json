@@ -9,7 +9,7 @@
         "start": "./node_modules/.bin/concurrently \"npm run server\" \"npm run client\"",
         "build": "cd client && npm run build",
         "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
-        "heroku-postbuild": "cd client && npm install && npm run build"
+        "heroku-postbuild": "cd client && npm install && npm run build && cd .."
     },
     "author": "",
     "license": "ISC",
