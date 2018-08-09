@@ -14,7 +14,7 @@ class profileCard extends Component {
         userId: sessionStorage.userId,
         userAc:[]
       }; 
-      componentDidMount(){
+      componentWillMount(){
         this.loadUser(this.state.userId)
       }
     loadUser =(id)=>{

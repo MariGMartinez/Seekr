@@ -6,10 +6,11 @@ const routes = require("./routes");
 
 const app = express();
 var mongoose = require('mongoose')
+// const db = require(mongoURI)
 
 
 
-mongoose.connect('mongodb://localhost/dataDB');
+mongoose.connect('mongodb://prestonp:04Powep20@ds145981.mlab.com:45981/seekr');
 
 // Middleware
 app.use(bodyparser.urlencoded({ extended: true }))
