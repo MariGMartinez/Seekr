@@ -53,6 +53,15 @@ loadUser =(id)=>{
         // console.log(totalSeconds);
         secondsLabel.innerHTML = pad(totalSeconds % 60);
       }
+      var distanceTravelledLabel = document.getElementById("distance");
+      var totalDistance = 0;
+      setInterval(setDistance, 25000);
+      
+      function setDistance() {
+        ++totalDistance;
+        // console.log(totalSeconds);
+        distanceTravelledLabel.innerHTML = pad(totalSeconds % 60);
+      }
       
       function pad(val) {
         var valString = val + "";

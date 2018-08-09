@@ -211,6 +211,9 @@ export class MapContainer extends Component {
             width: '95vw',
             height: '100vh'
         }
+        var divStyle = {
+            color: 'white',
+        }
     
 
         let cardList = this.state.cardList
@@ -337,10 +340,10 @@ export class MapContainer extends Component {
                                 <p><a href={this.state.selectedPlace.link}>View Trail</a></p>
                                 
                                 <Button className='blue' waves='light'
-                                        onCloseClick={this.goToHike}
-                                        >Hike This Trail!
+                                        // onClick={}
+                                        ><a style={divStyle} href={'/currentHike'} className="button">Hike This Trail!</a>
                                         <Icon right>directions_walk</Icon>
-                                        </Button>
+                                </Button>
                                 
 
 

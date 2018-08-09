@@ -21,6 +21,8 @@
     left: 500px;
 }
 
-#time{
+#timer{
+    background-color: white;
+    position: relative;
 
 }
