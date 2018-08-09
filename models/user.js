@@ -18,6 +18,9 @@ const UserSchema = new Schema({
     roles: [],
     selectedHikeLat: Number,
     selectedHikeLng: Number,
+    treks: Number,
+    badges: String,
+    
 });
 UserSchema.pre("save", function (next) {
     var user = this;

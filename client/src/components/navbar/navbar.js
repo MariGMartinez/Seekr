@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Navbar, NavItem } from 'react-materialize'
+import { Navbar,Button, NavItem } from 'react-materialize'
 import LogoutButton from "../../components/LogoutButton"
 import './navbar.css'
 
@@ -33,7 +33,11 @@ handleLogoutClick = () => {
           <NavItem href='/editProfile'>EditProfile</NavItem>
           <NavItem href='/currenthike'>Current Hike</NavItem>
           <NavItem href='/achievements'>Achievements</NavItem>
-          <LogoutButton href="/" onClick={this.handleLogoutClick} />
+          <Button className='blue' waves='light'
+                                        // onClick={}
+                                        ><a  href={'/login'} className="button">Logout</a>
+                                        
+          </Button>
 
         </Navbar>
       </Fragment>

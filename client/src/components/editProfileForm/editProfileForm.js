@@ -61,6 +61,9 @@ class editProfileForm extends Component {
                 backgroundColor: "#869383",
                 color:"white"
             }
+            var divStyle = {
+                color: 'black',
+            }
         
         return (
             <Fragment>
@@ -74,12 +77,14 @@ class editProfileForm extends Component {
                         value={this.state.firstname}
                         onChange={this.handleInputChange}
                         name="firstname"
+                        style={divStyle}
                     />
                     <Input s={6} label="Last Name" 
                         value={this.state.lastname}
                         label={this.state.userAc.lastname}
                         onChange={this.handleInputChange}
                         name="lastname"
+                        style={divStyle}
                     />
                     <Input 
                         type="email" 
@@ -89,6 +94,7 @@ class editProfileForm extends Component {
                         onChange={this.handleInputChange}
                         name="email"
                         placeholder={this.state.userAc.email}
+                        style={divStyle}
                     />
                       <Input 
                         type="email" 
@@ -98,6 +104,7 @@ class editProfileForm extends Component {
                         onChange={this.handleInputChange}
                         name="age"
                         placeholder={this.state.userAc.age}
+                        style={divStyle}
                     />
                        <Input 
                         type="email" 
@@ -107,6 +114,7 @@ class editProfileForm extends Component {
                         onChange={this.handleInputChange}
                         name="location"
                         placeholder={this.state.userAc.location}
+                        style={divStyle}
                     />
                     <Input 
                         type="textarea" 
@@ -116,6 +124,7 @@ class editProfileForm extends Component {
                         onChange={this.handleInputChange}
                         name="bio"
                         placeholder={this.state.userAc.bio}
+                        style={divStyle}
                     />
                 </Row>
                 <br></br>
