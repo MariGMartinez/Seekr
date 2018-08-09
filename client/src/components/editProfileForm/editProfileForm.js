@@ -19,7 +19,7 @@ class editProfileForm extends Component {
     };
     componentDidMount(){
         this.loadUser(this.state.userId)
-        console.log(this.state.userId)
+       
       }
       loadUser =(id)=>{
         USER.getUser(id)

@@ -71,6 +71,8 @@ export class MapContainer extends Component {
                                                 Location: {trail.location}<br /><br />
                                                 Length: {trail.length}<br /><br />
                                                 Condition Status: {trail.conditionStatus}<br /><br />
+                                                Latitude:{trail.latitude}<br /><br />
+                                                Longitude:{trail.longitude}
                                             </p>}
                                             actions={<SaveButton onClick={() => { this.saveToUser(trail.id) }}></SaveButton>}>
 

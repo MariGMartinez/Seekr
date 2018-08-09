@@ -16,12 +16,14 @@ class profileCard extends Component {
       }; 
       componentWillMount(){
         this.loadUser(this.state.userId)
+        
       }
     loadUser =(id)=>{
         USER.getUser(id)
             .then(res=>{
                 this.setState({userAc: res.data})
                 console.log(res.data)
+                
             })
     }
   

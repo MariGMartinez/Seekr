@@ -6,6 +6,8 @@ import { API, USER } from "../../utils";
 import Pin from '../../images/pin.png';
 import SaveButton from "../SaveButton"
 import CardList from "../CardList"
+import { Redirect, ReactDOM,  } from 'react-router-dom'
+
 
 
 
@@ -22,10 +24,15 @@ export class MapContainer extends Component {
         activeMarker: {},
         selectedPlace: {},
         selectedCard: {},
-        lat: 33.87844665140749, 
-        lng: -117.80288169790663,
+        selectedHikeLat: "1",
+        selectedHikeLng:"",
+        lat: '', 
+        lng: '',
+        latitude: '',
+        longitude: '',
         position: null,
         addressNum: "",
+        redirect: false,
         city:"",
         state: "",
         class1: "far fa-star fa-2x",
@@ -40,6 +47,7 @@ export class MapContainer extends Component {
         this.searchTrails(this.state.lat, this.state.lng)
        
     }
+    
     loadUser = (id) => {
         USER.getUser(id)
             .then(res => this.setState({ userAc: res.data, savedTrails: res.data.savedTrails })
@@ -106,6 +114,7 @@ export class MapContainer extends Component {
             selectedPlace: props,
             activeMarker: marker,
             showingInfoWindow: true
+            
         });
         this.handleStar(this.state.selectedPlace.stars)
     }
@@ -129,6 +138,7 @@ export class MapContainer extends Component {
                 .then(res => {this.setState({ lat: res.data.results[0].geometry.location.lat,
                                             lng: res.data.results[0].geometry.location.lng})
                             this.searchTrails(this.state.lat, this.state.lng)
+                            
                 })
                 .catch(err => console.log(err));
         }
@@ -176,11 +186,33 @@ export class MapContainer extends Component {
         }
         this.setState({ class1: `far fas fa-star fa-2x`})
     }
+    goToHike = () => {
+        
+        {
+            this.setState({
+              selectedHikeLat: this.state.selectedPlace.latitude,
+              selectedHikeLng: this.state.selectedPlace.longitude
+              
+          })
+           USER.updateUser( this.state.userId,{
+               firstname: this.state.firstname,
+               selectedHikeLat: this.state.selectedHikeLat,
+               selectedHikeLng: this.state.selectedHikeLng,
+
+           })
+               .then(res => console.log(res))
+               .catch(err => console.log(err));
+       }
+     
+    };
+  
     render() {
         const style = {
             width: '95vw',
             height: '100vh'
         }
+    
+
         let cardList = this.state.cardList
          let card
          let btn
@@ -255,6 +287,8 @@ export class MapContainer extends Component {
                                     summary={trail.summary}
                                     location={trail.location}
                                     length={trail.length}
+                                    latitude= {trail.latitude}
+                                    longitude={trail.longitude}
                                     stars={trail.stars}
                                     conditionStatus={trail.conditionStatus}
                                     saved={this.saveTrail({
@@ -265,6 +299,8 @@ export class MapContainer extends Component {
                                         summary: trail.summary,
                                         location: trail.location,
                                         length: trail.length,
+                                        latitude: trail.latitude,
+                                        longitude:trail.longitude,
                                         stars: trail.stars,
                                         conditionStatus: trail.conditionStatus
                                         })}
@@ -278,13 +314,17 @@ export class MapContainer extends Component {
                             position={{lat:this.state.lat, lng: this.state.lng}} />
                         <InfoWindow
                             marker={this.state.activeMarker}
-                            visible={this.state.showingInfoWindow}>
+                            visible={this.state.showingInfoWindow}
+                            onOpen={this.goToHike}>
+                            
                             <Card header={<CardTitle reveal image={this.state.selectedPlace.image} waves='light'/>}
                                 title={this.state.selectedPlace.name}
                                 reveal={<p>Sumary: {this.state.selectedPlace.summary}<br /><br />
                                         Location: {this.state.selectedPlace.location}<br /><br />
                                         Length: {this.state.selectedPlace.length}<br /><br />
                                         Condition Status: {this.state.selectedPlace.conditionStatus}<br /><br />
+                                        Latitude:{this.state.selectedPlace.latitude}<br /><br />
+                                        Longitude:{this.state.selectedPlace.longitude}<br /><br />
                                     </p>}
 
                                 >
@@ -295,6 +335,12 @@ export class MapContainer extends Component {
                                 <i class={this.state.class5} style={{ color: 'red' }}></i>
 
                                 <p><a href={this.state.selectedPlace.link}>View Trail</a></p>
+                                
+                                <Button className='blue' waves='light'
+                                        onCloseClick={this.goToHike}
+                                        >Hike This Trail!
+                                        <Icon right>directions_walk</Icon>
+                                        </Button>
                                 
 
 

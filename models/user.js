@@ -15,7 +15,9 @@ const UserSchema = new Schema({
     location: String,
     milesHiked: Number,
     savedTrails: [{type: mongoose.Schema.Types.ObjectId, ref: 'Trail'}],
-    roles: []
+    roles: [],
+    selectedHikeLat: Number,
+    selectedHikeLng: Number,
 });
 UserSchema.pre("save", function (next) {
     var user = this;

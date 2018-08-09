@@ -8,101 +8,86 @@ import DeleteButton from "../DeleteButton"
 
 export class MapContainer extends Component {
   state = {
+    trails:[],
     results: [],
-    userAc: [],
     isLoggedIn: sessionStorage.isLoggedIn,
     userId: sessionStorage.userId,
+    userAc:[],
     showingInfoWindow: false,
     activeMarker: {},
     selectedPlace: {},
-    lat: "",
-    lng: "",
+    selectedHikeLat: '',
+    selectedHikeLng: '',
+    startLat: 0,
+    startLng: 0,
     position: null,
     addressNum: "",
     city: "",
-    state: "",
-    hike: 'http://pluspng.com/img-png/png-hiking-camping-1000.png'
+    state: ""
   }
-
-
+//  
+  componentWillMount() {
+    this.showCurrentPos()
+    this.loadUser(this.state.userId)
+}
+loadUser =(id)=>{
+  USER.getUser(id)
+      .then(res=>{
+          this.setState({
+            userAc: res.data,
+            selectedHikeLat:res.data.selectedHikeLat,
+            selectedHikeLng:res.data.selectedHikeLng,
+          })
+          console.log(res.data.selectedHikeLat)
+      })
+}
 
   startHike = () => {
 
-    var secondsLabel = document.getElementById("time");
-    var totalSeconds = 0;
-    setInterval(setTime, 1000);
-
-    function setTime() {
-      ++totalSeconds;
-      secondsLabel.innerHTML = pad(totalSeconds % 60);
-    }
-
-    function pad(val) {
-      var valString = val + "";
-      if (valString.length < 2) {
-        return "0" + valString;
-      } else {
-        return valString;
+      var secondsLabel = document.getElementById("time");
+      var totalSeconds = 0;
+      setInterval(setTime, 1000);
+      
+      function setTime() {
+        ++totalSeconds;
+        // console.log(totalSeconds);
+        secondsLabel.innerHTML = pad(totalSeconds % 60);
+      }
+      
+      function pad(val) {
+        var valString = val + "";
+        if (valString.length < 2) {
+          return "0" + valString;
+        } else {
+          return valString;
+        }
       }
     }
-  }
-
-
-
-  endHike = () => {
-  }
-
-componentWillMount(){
-  this.showCurrentPos()
-}
-  componentDidMount() {
-    this.showDistance()
-    this.willHike()
-  }
-  loadUser = (id) => {
-    USER.getUser(id)
-      .then(res => this.setState({ userAc: res.data })
-      )
-      .catch(err => console.log(err));
-  };
-  showCurrentPos = () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      let lat
-      let lng
-
-      lat = position.coords.latitude
-      lng = position.coords.longitude
-
-      this.setState({ lat: lat, lng: lng })
-      // this.searchTrails(this.state.lat, this.state.lng)
-      console.log(this.state.lat)
-      console.log(this.state.lng)
-    })
-  }
-
-  showDistance = () => {
-    Number.prototype.toRad = function () {
-      return this * Math.PI / 180;
+  
+    endHike = () => {
     }
-    var lat2 = 33.9148239;
-    var lon2 = -118.01347389999998;
-    var lat1 = 33.684567;
-    var lon1 = -117.826505;
+    
 
-    var R = 6371; // km 
-    //has a problem with the .toRad() method below.
-    var x1 = lat2 - lat1;
-    var dLat = x1.toRad();
-    var x2 = lon2 - lon1;
-    var dLon = x2.toRad();
-    var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) *
-      Math.sin(dLon / 2) * Math.sin(dLon / 2);
-    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    var d = R * c;
+  showCurrentPos = () => {
+    
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          console.log(position.coords.latitude);
+          console.log(position.coords.longitude);
+          this.setState({
+            startLat: position.coords.latitude,
+            startLng: position.coords.longitude
+          })
+        }
+      )
+    } else {
+      error => console.log(error)
+    }
+   
 
-    console.log(d)
   }
+
   onInfoWindowClose = () => {
     this.setState({
       showingInfoWindow: false,
@@ -113,7 +98,7 @@ componentWillMount(){
     //this.setState({
     //   lat: event.latLng.lat(), lng: event.latLng.lng()
     //})
-    // alert(event.latLng.lat() + '/' + event.latLng.lng())
+    alert(event.latLng.lat() + '/' + event.latLng.lng())
 
   }
   onMarkerClick = (props, marker, e) => {
@@ -123,48 +108,36 @@ componentWillMount(){
       showingInfoWindow: true
     });
   }
-  willHike =()=> {
-  alert("Start your Hike?")
-  }
   render() {
     const style = {
       width: '100%',
       height: '100vh'
     }
-    var points = [
-      { lat: this.state.lat, lng: this.state.lng },
-      { lat: 33.684567, lng: -117.826505 },
 
-    ]
+    const { startLat, startLng} = this.state;
 
     return (
-      <Row >
-        <Col s={12} >
+      <Row id="pos">
+        <Col s={12} id="pos">
 
           <Map style={style}
             google={this.props.google}
             mapTypeId={this.satellite}
-            zoom={10}
+            zoom={9}
             onClick={this.mapClicked}
-            //centerAroundCurrentLocation={false}
-            center={{ lat: this.state.lat, lng: this.state.lng }}>
-
+            
+            center={{ lat: this.state.startLat, lng: this.state.startLng }}>
+            
             <Marker
               onClick={this.onMarkerClick}
               name={'Your current location'}
-              position={{ lat: this.state.lat, lng: this.state.lng }} />
-            <Marker
-              // onClick={this.onMarkerClick}
-              name={'Current Hike'}
-              position={{ lat: 33.684567, lng: -117.826505 }}
-              icon={{ hike: 'http://pluspng.com/img-png/png-hiking-camping-1000.png' }} />
-            <InfoWindow
-              marker={this.state.activeMarker}
-              visible={this.state.showingInfoWindow}>
-
-            </InfoWindow>
+              position={{ lat: startLat, lng: startLng }} />
+            <Marker 
+              onClick={this.onMarkerClick}
+              name={'The end location'}
+              position={{ lat: this.state.selectedHikeLat, lng: this.state.selectedHikeLng}}/>
           </Map>
-          {/* <Row id="pos">
+          <Row id="pos">
             <Button className='red' waves='light' id='start' onClick={() => this.startHike()}>Start Hike</Button>
           </Row>
           <Row id="pos">
@@ -173,7 +146,7 @@ componentWillMount(){
           <Row id="pos">
             <h6>Distance Traveled: </h6><h6 id='distance'></h6>
             <h6>Time: </h6><h6 id='time'></h6>
-          </Row> */}
+          </Row>
         </Col>
       </Row>
     );
@@ -181,5 +154,5 @@ componentWillMount(){
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCmdV4DIx0uYZXFlVfbsqx12rfNM_dYz7A'
+  apiKey: 'AIzaSyBOWlSKL22cnTlCyamBX-CpBHKu6DKt7qU'
 })(MapContainer)
